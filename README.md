@@ -17,6 +17,17 @@ Materiales
 - Sensor de ultrasonido HC-SR04
 - Arduino UNO 
 
-###Procedimiento
+Procedimiento
+-------------
 
-Lo primero es realizar las conexiones entre el arduino y la protoboard
+Lo primero es realizar las conexiones entre el arduino y la protoboard, buscando los pines V5 y GND para asi conectarlos a las canaletas verticales.
+
+Imagen pendiente
+
+Ahora vamos a conectar VCC y GND de nuestro sensor a la protoboar y luego nuestro pin Trig al pin 9 del arduino y el pin Echo al pin 10 del arduino.
+
+Imagen pendiente
+
+Lo siguiente es conectar VCC y GND de nuestra pantalla LCD  y el pin SCL al pin A5 y el pin SDA al pin A4 de nuestro arduino.
+
+Tras confirmar las correctas conexiones solo debes conectar el arduino y cargar el codigo que encuentras en el documento medidor_de_distancia.ino y eso seria todo!
