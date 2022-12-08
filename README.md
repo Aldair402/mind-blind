@@ -12,22 +12,59 @@ En este GITHUB vas a encontrar varios proyectos de robotica, electronica y mecan
 Materiales
 -------------
 - Protoboard
+>![board](https://user-images.githubusercontent.com/79547422/206582590-f091d6be-6f4f-4c22-9c90-18e982a1f83e.JPG)
 
 - Pantalla LCD I2C
+>![pantallaLCD](https://user-images.githubusercontent.com/79547422/206582760-9ee3093d-c4ed-4e09-a602-16abbbc88a66.JPG)
+>![i2c](https://user-images.githubusercontent.com/79547422/206582933-da1d68bb-adaf-4093-8aee-a7066959bc0f.JPG)
+
 - Sensor de ultrasonido HC-SR04
+>![sensor](https://user-images.githubusercontent.com/79547422/206583151-45003958-78ac-4130-960c-c730b9f2a559.jpg)
+
 - Arduino UNO 
+>![arduino](https://user-images.githubusercontent.com/79547422/206583391-c520780f-7c52-415b-9109-3f37045955c3.JPG)
 
 Procedimiento
 -------------
 
-Lo primero es realizar las conexiones entre el arduino y la protoboard, buscando los pines V5 y GND para asi conectarlos a las canaletas verticales.
+Lo primero es realizar las conexiones entre el arduino y la protoboard, buscando los pines V5 y GND para asi conectarlos a las canaletas verticales, asi mismo vamos a conectar VCC y GND de nuestro sensor de ultrasonido a la protoboar y luego nuestro pin Trig al pin 9 del arduino y el pin Echo al pin 10 del arduino, para poder finalizar, lo siguiente es conectar VCC y GND de nuestra pantalla LCD  y el pin SCL al pin A5 y el pin SDA al pin A4 de nuestro arduino.
 
-Imagen pendiente
+![conecttions](https://user-images.githubusercontent.com/79547422/206584620-f3da291c-28f0-43cc-9e8c-4b87832c2e7e.JPG)
 
-Ahora vamos a conectar VCC y GND de nuestro sensor a la protoboar y luego nuestro pin Trig al pin 9 del arduino y el pin Echo al pin 10 del arduino.
+Tras confirmar las correctas conexiones solo debes conectar el arduino y buscar la libreria [LiquidCrystal](https://www.arduinolibraries.info/libraries/liquid-crystal-i2-c) para poder utilizar nuestra pantalla LCD
 
-Imagen pendiente
+-[Libreria LiquidCrystal](https://www.arduinolibraries.info/libraries/liquid-crystal-i2-c) 
 
-Lo siguiente es conectar VCC y GND de nuestra pantalla LCD  y el pin SCL al pin A5 y el pin SDA al pin A4 de nuestro arduino.
+Una vez descargada para instalarla debes abrir tu IDE de arduino, si no tienes lo tienes instalado puedes descararlo desde su web de [Software](https://www.arduino.cc/en/software), seleccionas el sistema operaivo en el que lo vas a instalar, lo bajas, y lo abres, siguiendo todas las instrucciones del instalador, no seria mucho mas.
 
-Tras confirmar las correctas conexiones solo debes conectar el arduino y cargar el codigo que encuentras en el documento medidor_de_distancia.ino y eso seria todo!
+[Descargar el IDE Arduino](https://www.arduino.cc/en/software)
+
+Continuando con la instalacion de la libreria, debes dirigirte al apartado "Programa" en el menu superior y seleccionar "incluir libreria" y luego darle click a "Añadir biblioteca .ZIP", see te va a desplegar un buscador de archivos, deberas ubicar la libreria y seleccionarla, eso seria todo, ya tienes tu libreria instalada.
+
+![libreria](https://user-images.githubusercontent.com/79547422/206586250-6a74be28-a28d-4b18-bc78-724f57af0c7b.JPG)
+![lbreria2](https://user-images.githubusercontent.com/79547422/206586258-bab70188-d279-40f7-9561-eb14637e9967.JPG)
+![libreria 3](https://user-images.githubusercontent.com/79547422/206586262-afd6d818-10d5-44ac-901a-1a7e0e9b10df.JPG)
+
+Ahora debes utilizar el codigo [medidor_de_distancia.ino](https://github.com/FryFr/Sensor_de_distancia/blob/main/medidor_de_distancia.ino) en una sketch en blanco, compilar y subir y tendras tu sensor funcionando!
+
+![funciona](https://user-images.githubusercontent.com/79547422/206586560-e2c6390a-c030-408c-a6db-ea35ac2b7f6d.JPG)
+
+Ultima Actualizacion
+-------------
+
+####Correccion caracteres al final del LCD
+
+Declaramos una variable para guardar la ulltima distancia registrada
+```C++
+int ultimadistancia = 0;           //declaramos una variable para poder limpiar la pantalla LCD
+```
+Creamos un condicional para comparar las distancias registradas con las ultimas almacenadas y limpiamos la pantalla para evitar que se extiendan los caracteres, manteniendo el delay por fuera de la funcion
+```C++
+  if(distancia != ultimadistancia){   // realizamos un comparador de la distancia y la guardada de ultimo
+    lcd.clear;                        //Limpiamos la pantalla por cada ciclo de datos encontrados
+    lcd.setCursor(0,0);
+    lcd.print("Distancia: ");
+    lcd.print(distancia);              //Enviamos serialmente el valor de la distancia al LCD
+    lcd.print("CM");
+  }
+```
