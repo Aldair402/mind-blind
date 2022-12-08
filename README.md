@@ -8,6 +8,7 @@ En este GITHUB vas a encontrar varios proyectos de robotica, electronica y mecan
 
 # Medidor de distancia
 
+En este proyecto se indaga en el funcionamiento de las ondas de comunicacion y como el analisis de estas, realizando un medidor de distancia a partir de un sensor de ultrasonido. El codigo se deja como de fuente abierta ya que permitira realizar adiciones de mas elementos tanto electronicos como mecanicos en pro de construir un conocimiento mas profundo y complejo del mismo. Sientete libre de descargar este repositorio y mejorarlo!
 
 Materiales
 -------------
@@ -52,7 +53,7 @@ Ahora debes utilizar el codigo [medidor_de_distancia.ino](https://github.com/Fry
 Ultima Actualizacion
 -------------
 
-####Correccion caracteres al final del LCD
+###Correccion caracteres al final del LCD
 
 Declaramos una variable para guardar la ulltima distancia registrada
 ```C++
