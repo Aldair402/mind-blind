@@ -53,7 +53,17 @@ Ahora debes utilizar el codigo [medidor_de_distancia.ino](https://github.com/Fry
 Ultima Actualizacion
 -------------
 
-###Correccion caracteres al final del LCD
+#### Sensor de Distancia con Barra indicativa
+
+En el codigo que tenemos en el archivo "medidor_distancia_con_barra.ino" podras ver un cambio en la presentación de los datos en nuestra pantalla LCD con comunicación I2C, para ello debemos mantener las mismas conexiones que en nuestra primera versión. Una vez encedido el arduino podremos ver el crecimiento de la barra dependiendo de la distancia capturada por nuestro sensor:
+
+![aasdasda](https://user-images.githubusercontent.com/79547422/218630148-976afdb2-ad5b-487c-8a43-7a0ef3fa8b9e.JPG)
+![fdasfasdf](https://user-images.githubusercontent.com/79547422/218630360-35b33837-8d9a-439c-9957-d10a5ac06c8d.JPG)
+![qwerasdf](https://user-images.githubusercontent.com/79547422/218630365-daf53036-9481-4c57-b285-b823dc8d39e4.JPG)
+![fasdfasdfa](https://user-images.githubusercontent.com/79547422/218630373-4bc42f78-dc2c-400f-aa26-bf327e0a1241.JPG)
+
+
+#### Correccion caracteres al final del LCD
 
 Declaramos una variable para guardar la ulltima distancia registrada
 ```C++
@@ -62,10 +72,14 @@ int ultimadistancia = 0;           //declaramos una variable para poder limpiar 
 Creamos un condicional para comparar las distancias registradas con las ultimas almacenadas y limpiamos la pantalla para evitar que se extiendan los caracteres, manteniendo el delay por fuera de la funcion
 ```C++
   if(distancia != ultimadistancia){   // realizamos un comparador de la distancia y la guardada de ultimo
-    lcd.clear;                        //Limpiamos la pantalla por cada ciclo de datos encontrados
+    lcd.clear();                        //Limpiamos la pantalla por cada ciclo de datos encontrados
     lcd.setCursor(0,0);
     lcd.print("Distancia: ");
     lcd.print(distancia);              //Enviamos serialmente el valor de la distancia al LCD
     lcd.print("CM");
   }
 ```
+
+## Creditos
+- Nicolas Sanchez
+- Juan Silva
