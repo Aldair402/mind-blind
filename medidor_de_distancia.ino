@@ -1,10 +1,12 @@
 #include <Wire.h>
 const int Trigger = 9;             //Pin digital 2 para el Trigger del sensor
 const int Echo = 10;               //Pin digital 3 para el Echo del sensor
+int motorPin = 3; //motor al pin 3
 
 void setup() {
   Serial.begin(9600);         //Inicializamos la comunicacion
   pinMode(Trigger, OUTPUT);   //definimos el Trigger como salida
+  pinMode(motorPin, OUTPUT);  //definimos el Motor como salida
   pinMode(Echo, INPUT);       //definimos el Echo como entrada
   digitalWrite(Trigger, LOW); //Inicializamos el pin con un 0 digital   
 
@@ -28,8 +30,7 @@ void loop() {
   Serial.println();
 
   if(distancia ≥ 50){   // Como sabemos que medimos en CM podemos hacer esto w
-  
-  // Codigo de el motor w
+   digitalWrite(motorPin, HIGH); // Vibramos w
   }
   delay(50);                        //Hacemos una pausa de 100ms
 
