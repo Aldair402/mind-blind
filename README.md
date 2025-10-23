@@ -64,6 +64,4 @@ Este repositorio es un **fork** del proyecto original para mostrar la distancia 
 
 * Taller de Administración
 
----
 
-¿Quieres que haga eso?
