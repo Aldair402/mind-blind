@@ -30,7 +30,16 @@ void loop() {
   Serial.println();
 
   if(distancia <= 50){   // Como sabemos que medimos en CM podemos hacer esto w
-   digitalWrite(motorPin, HIGH); // Vibramos w
+  // Suave
+  analogWrite(motorPin, 100);
+  }
+  if(distancia <= 30){
+  // 50% de fuerza
+  analogWrite(motorPin, 128);
+  }
+  // Al tope
+  if(distancia <= 15){
+  analogWrite(motorPin, 255);
   }
   delay(50);                        //Hacemos una pausa de 100ms
 
