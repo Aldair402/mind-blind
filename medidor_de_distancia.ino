@@ -29,7 +29,7 @@ void loop() {
 
   Serial.println();
 
-  if(distancia ≥ 50){   // Como sabemos que medimos en CM podemos hacer esto w
+  if(distancia <= 50){   // Como sabemos que medimos en CM podemos hacer esto w
    digitalWrite(motorPin, HIGH); // Vibramos w
   }
   delay(50);                        //Hacemos una pausa de 100ms
