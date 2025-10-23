@@ -29,16 +29,16 @@ void loop() {
 
   Serial.println();
 
-  if(distancia <= 50){   // Como sabemos que medimos en CM podemos hacer esto w
+  if(distancia <= 150){   // Como sabemos que medimos en CM podemos hacer esto w
   // Suave
   analogWrite(motorPin, 100);
   }
-  if(distancia <= 30){
+  if(distancia <= 80){
   // 50% de fuerza
-  analogWrite(motorPin, 128);
+  analogWrite(motorPin, 150);
   }
   // Al tope
-  if(distancia <= 15){
+  if(distancia <= 30){
   analogWrite(motorPin, 255);
   }
   delay(50);                        //Hacemos una pausa de 100ms
